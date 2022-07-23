@@ -49,7 +49,7 @@ class _HomeAppState extends State<HomeApp> {
 
   void start() {
     started = true;
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       int localSeconds = seconds + 1;
       int localMinutes = minutes;
       int localHours = hours;
@@ -120,7 +120,7 @@ class _HomeAppState extends State<HomeApp> {
                   itemCount: laps.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(7.5),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -174,7 +174,7 @@ class _HomeAppState extends State<HomeApp> {
                   IconButton(
                     color: Colors.white,
                     onPressed: () {
-                      addLaps();
+                      (started) ? addLaps() : "";
                     },
                     icon: const Icon(Icons.flag),
                   ),
